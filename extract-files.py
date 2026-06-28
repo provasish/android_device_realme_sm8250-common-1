@@ -105,6 +105,9 @@ blob_fixups: blob_fixups_user_type = {
     'system_ext/lib64/libwfdservice.so': blob_fixup()
         .replace_needed('android.media.audio.common.types-V4-cpp.so', 'android.media.audio.common.types-V5-cpp.so')
         .add_needed('libaudiobase.so'),
+    'system_ext/lib64/libwfdmmsrc_system.so': blob_fixup()
+        .add_needed('libaudiobase.so')
+        .add_needed('libwfd_shim.so'),
     'vendor/lib64/libmidasserviceintf_aidl.so': blob_fixup()
         .remove_needed('android.frameworks.stats@1.0.so'),
     'vendor/etc/libnfc-nci.conf': blob_fixup()
